@@ -27,7 +27,7 @@ class Game {
         this.ctx.fillStyle = "#ffffff";
         this.ctx.font = "50px verdana, sans-serif ";
         this.ctx.fillText(this.paddle1.num, 10, 150);
-        this.ctx.fillText(this.paddle2.num, 400, 150);
+        this.ctx.fillText(this.paddle2.num, 380, 150);
 
         this.paddle1.draw(this.ctx);
         this.paddle2.draw(this.ctx);

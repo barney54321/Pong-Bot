@@ -45,11 +45,14 @@ function runner() {
         [nextGen[6].wih, nextGen[7].wih] = crossover(nextGen[2].wih, nextGen[3].wih);
         [nextGen[6].who, nextGen[7].who] = crossover(nextGen[2].who, nextGen[3].who);
 
+        nextGen[5] = new Paddle(nextGen[5].num);
+        nextGen[5].wih = mutate(nextGen[0].wih);
+        nextGen[5].who = mutate(nextGen[0].who);
         nextGen[7] = new Paddle(nextGen[7].num);
 
         // Mutate new generation
         for (var i = 4; i < 8; i++) {
-            if (Math.random() > 0.75) {
+            if (Math.random() > 0.65) {
                 nextGen[i].wih = mutate(nextGen[i].wih);
                 nextGen[i].who = mutate(nextGen[i].who);
             }

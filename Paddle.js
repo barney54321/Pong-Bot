@@ -10,22 +10,21 @@ class Paddle {
         // Inputs: (this.centre - ball.centre)
         // Outputs: up, down
 
-        // From 1 to 8
+        // From 2 to 8
         this.wih = [
-            [randomNumber(100, -100), randomNumber(100, -100)],
-            [randomNumber(100, -100), randomNumber(100, -100)],
-            [randomNumber(100, -100), randomNumber(100, -100)],
-            [randomNumber(100, -100), randomNumber(100, -100)],
-            [randomNumber(100, -100), randomNumber(100, -100)],
-            [randomNumber(100, -100), randomNumber(100, -100)],
-            [randomNumber(100, -100), randomNumber(100, -100)],
-            [randomNumber(100, -100), randomNumber(100, -100)],
+            [randomNumber(1000, -1000), randomNumber(1000, -1000)],
+            [randomNumber(1000, -1000), randomNumber(1000, -1000)],
+            [randomNumber(1000, -1000), randomNumber(1000, -1000)],
+            [randomNumber(1000, -1000), randomNumber(1000, -1000)],
+            [randomNumber(1000, -1000), randomNumber(1000, -1000)],
+            [randomNumber(1000, -1000), randomNumber(1000, -1000)],
+            [randomNumber(1000, -1000), randomNumber(1000, -1000)],
          ];
 
         // From 8 to 2
         this.who = [
-            [randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), ],
-            [randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), randomNumber(100, -100), ]
+            [randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), ],
+            [randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), randomNumber(1000, -1000), ]
         ];
     }
 
@@ -40,7 +39,7 @@ class Paddle {
     }
 
     calculate(ball) {
-        var inputs = transpose([this.y + this.height / 2 - ball.y - ball.height / 2, ball.y ]);
+        var inputs = transpose([this.y - ball.y, ball.y]);
         var hiddenOutput = matrixMultiply(this.wih, inputs);
         var hiddenResult = applySigmoid(hiddenOutput);
         var outputs = matrixMultiply(this.who, hiddenResult);
